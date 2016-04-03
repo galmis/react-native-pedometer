@@ -27,6 +27,7 @@ Run your project (⌘+R).
 
 ## Basic usage
 
+```js
 // Import the react-native-pedometer module
 var Pedometer = require('react-native-pedometer');
 
