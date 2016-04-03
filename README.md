@@ -68,6 +68,7 @@ Pedometer.isCadenceAvailable(function(error, isAvailable) {
 
 // stop pedometer updates
 Pedometer.stopPedometerUpdates();
+```
 
 ## Notes
 - CMPedometer is supported on iPhone 5s and newer.
