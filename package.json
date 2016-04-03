@@ -1,0 +1,15 @@
+{
+  "name": "react-native-pedometer",
+  "version": "0.0.1",
+  "description": "A react-native plugin for using CMPedometer",
+  "main": "pedometer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Galmis",
+  "license": "MIT",
+  "devDependencies": { },
+  "peerDependencies": {
+    "react-native": "^0.22.2"
+  },
+}
