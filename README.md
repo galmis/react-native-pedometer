@@ -14,7 +14,7 @@ npm install react-native-pedometer --save
 
 In XCode, right click **Libraries**.
 Click **Add Files to "[Your project]"**.
-Navigate to **node_modules/react-native-sound**.
+Navigate to **node_modules/react-native-pedometer**.
 Add the file **RNPedometer.xcodeproj**.
 
 In the *Project Navigator*, select your project.
