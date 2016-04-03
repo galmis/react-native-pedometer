@@ -1,5 +1,10 @@
-var RCTDeviceEventEmitter = require('RCTDeviceEventEmitter');
-var RNPedometer = require('NativeModules').RNPedometer;
+var React = require('react-native');
+
+var {
+  DeviceEventEmitter
+} = React;
+
+var RNPedometer = React.NativeModules.RNPedometer;
 
 var Pedometer = {
   isStepCountingAvailable: function(callback) {
@@ -25,7 +30,7 @@ var Pedometer = {
   startPedometerUpdatesFromDate: function(date, handler) {
     debugger;
     RNPedometer.startPedometerUpdatesFromDate(date);
-    RCTDeviceEventEmitter.addListener(
+    DeviceEventEmitter.addListener(
       'pedometerDataDidUpdate',
       handler
     );
