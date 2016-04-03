@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Galmis",
+  "author": "Giedrius Galminas",
   "license": "MIT",
   "devDependencies": { },
   "peerDependencies": {
@@ -15,5 +15,5 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Reptilijonas/react-native-pedometer.git"
-  },
+  }
 }
