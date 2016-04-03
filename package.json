@@ -12,4 +12,8 @@
   "peerDependencies": {
     "react-native": "^0.22.2"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Reptilijonas/react-native-pedometer.git"
+  },
 }
