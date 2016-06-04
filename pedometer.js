@@ -28,7 +28,6 @@ var Pedometer = {
   },
 
   startPedometerUpdatesFromDate: function(date, handler) {
-    debugger;
     RNPedometer.startPedometerUpdatesFromDate(date);
     DeviceEventEmitter.addListener(
       'pedometerDataDidUpdate',
