@@ -33,7 +33,7 @@ var Pedometer = require('react-native-pedometer');
 
 // start tracking from current time
 var now = new Date();
-Pedometer.startPedometerUpdatesFromDate(now, (pedometerData) => {
+Pedometer.startPedometerUpdatesFromDate(now.getTime(), (pedometerData) => {
   // do something with pedometer data
 });
 
@@ -41,7 +41,7 @@ Pedometer.startPedometerUpdatesFromDate(now, (pedometerData) => {
 var startDate = new Date();
 startDate.setHours(0,0,0,0);
 var endDate = new Date();
-Pedometer.queryPedometerUpdatesBetweenDates(startDate, endDate, (pedometerData) => {
+Pedometer.queryPedometerUpdatesBetweenDates(startDate.getTime(), endDate.getTime(), (pedometerData) => {
   // do something with pedometer data
 });
 
