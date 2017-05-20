@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import "RCTBridgeModule.h"
+#import <React/RCTBridgeModule.h>
+#import <React/RCTEventEmitter.h>
 
-@interface RNPedometer : NSObject <RCTBridgeModule>
+@interface RNPedometer : RCTEventEmitter <RCTBridgeModule>
 
 @end

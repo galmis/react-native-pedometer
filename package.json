@@ -1,6 +1,6 @@
 {
   "name": "react-native-pedometer",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A react-native plugin for using CMPedometer",
   "main": "pedometer.js",
   "scripts": {
@@ -8,9 +8,9 @@
   },
   "author": "Giedrius Galminas",
   "license": "MIT",
-  "devDependencies": { },
+  "devDependencies": {},
   "peerDependencies": {
-    "react-native": ">=0.22.2"
+    "react-native": ">=0.42.3"
   },
   "repository": {
     "type": "git",

@@ -1,50 +1,52 @@
 'use strict';
 
-var React = require('react-native');
+import { NativeModules, NativeEventEmitter } from 'react-native';
+const { RNPedometer } = NativeModules;
 
-var {
-  DeviceEventEmitter
-} = React;
+const EventEmitter = new NativeEventEmitter(RNPedometer);
+let subscription;
 
-var RNPedometer = React.NativeModules.RNPedometer;
+function isStepCountingAvailable(callback) {
+  RNPedometer.isStepCountingAvailable(callback);
+}
 
-var Pedometer = {
-  isStepCountingAvailable: function(callback) {
-    RNPedometer.isStepCountingAvailable(callback);
-  },
+function isDistanceAvailable(callback) {
+  RNPedometer.isDistanceAvailable(callback);
+}
 
-  isDistanceAvailable: function(callback) {
-    RNPedometer.isDistanceAvailable(callback);
-  },
+function isPaceAvailable(callback) {
+  RNPedometer.isPaceAvailable(callback);
+}
 
-  isFloorCountingAvailable: function(callback) {
-    RNPedometer.isFloorCountingAvailable(callback);
-  },
+function isCadenceAvailable(callback) {
+  RNPedometer.isCadenceAvailable(callback);
+}
 
-  isPaceAvailable: function(callback) {
-    RNPedometer.isPaceAvailable(callback);
-  },
+function queryPedometerDataBetweenDates(startDate, endDate, handler) {
+  RNPedometer.queryPedometerDataBetweenDates(startDate, endDate, handler);
+}
 
-  isCadenceAvailable: function(callback) {
-    RNPedometer.isCadenceAvailable(callback);
-  },
-
-  startPedometerUpdatesFromDate: function(date, handler) {
-    RNPedometer.startPedometerUpdatesFromDate(date);
-    DeviceEventEmitter.addListener(
-      'pedometerDataDidUpdate',
-      handler
-    );
-  },
-
-  queryPedometerDataBetweenDates: function(startDate, endDate, handler) {
-    RNPedometer.queryPedometerDataBetweenDates(startDate, endDate, handler);
-  },
-
-  stopPedometerUpdates: function () {
-    RNPedometer.stopPedometerUpdates();
+function stopPedometerUpdates() {
+  RNPedometer.stopPedometerUpdates();
+  if (subscription) {
+    subscription.remove();
   }
+}
 
-};
+function startPedometerUpdatesFromDate(date, handler) {
+  RNPedometer.startPedometerUpdatesFromDate(date);
+  subscription = EventEmitter.addListener(
+    'pedometerDataDidUpdate',
+    handler
+  );
+}
 
-module.exports = Pedometer;
+export default {
+  isStepCountingAvailable,
+  isDistanceAvailable,
+  isPaceAvailable,
+  isCadenceAvailable,
+  queryPedometerDataBetweenDates,
+  stopPedometerUpdates,
+  startPedometerUpdatesFromDate
+}
