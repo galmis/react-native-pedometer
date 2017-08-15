@@ -29,45 +29,45 @@ Run your project (⌘+R).
 
 ```js
 // Import the react-native-pedometer module
-var Pedometer = require('react-native-pedometer');
+import Pedometer from 'react-native-pedometer')
 
 // start tracking from current time
-var now = new Date();
+var now = new Date()
 Pedometer.startPedometerUpdatesFromDate(now.getTime(), (pedometerData) => {
   // do something with pedometer data
-});
+})
 
 // query pedometer data from selected date to other selected date
-var startDate = new Date();
-startDate.setHours(0,0,0,0);
-var endDate = new Date();
-Pedometer.queryPedometerUpdatesBetweenDates(startDate.getTime(), endDate.getTime(), (pedometerData) => {
+const startDate = new Date()
+startDate.setHours(0,0,0,0)
+const endDate = new Date()
+Pedometer.queryPedometerDataBetweenDates(startDate.getTime(), endDate.getTime(), (error, pedometerData) => {
   // do something with pedometer data
-});
+})
 
 // determine pedometer availability
 Pedometer.isStepCountingAvailable(function(error, isAvailable) {
 // do something
-});
+})
 
 Pedometer.isDistanceAvailable(function(error, isAvailable) {
 // do something
-});
+})
 
 Pedometer.isFloorCountingAvailable(function(error, isAvailable) {
 // do something
-});
+})
 
 Pedometer.isPaceAvailable(function(error, isAvailable) {
 // do something
-});
+})
 
 Pedometer.isCadenceAvailable(function(error, isAvailable) {
 // do something
-});
+})
 
 // stop pedometer updates
-Pedometer.stopPedometerUpdates();
+Pedometer.stopPedometerUpdates()
 ```
 
 ## Notes
