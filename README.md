@@ -66,6 +66,23 @@ Pedometer.isCadenceAvailable(function(error, isAvailable) {
 // do something
 });
 
+Pedometer.isPedometerEventTrackingAvailable(function(error, isAvailable) {
+// do something
+});
+
+Pedometer.authorizationStatus(function(error, status) {
+// do something
+/*
+  Possible status values:
+  -- 
+  - "denied"
+  - "authorized"
+  - "restricted"
+  - "not_determined"
+  - "not_available" (on iOS < 11.0)
+ */
+});
+
 // stop pedometer updates
 Pedometer.stopPedometerUpdates();
 ```
