@@ -90,6 +90,33 @@ RCT_EXPORT_METHOD(stopPedometerUpdates) {
     [self.pedometer stopPedometerUpdates];
 }
 
+RCT_EXPORT_METHOD(authorizationStatus:(RCTResponseSenderBlock) callback) {
+    NSString *response = @"not_available";
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 110000
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wpartial-availability"
+        CMAuthorizationStatus status = [CMPedometer authorizationStatus];
+        switch (status) {
+            case CMAuthorizationStatusDenied:
+                response = @"denied";
+                break;
+            case CMAuthorizationStatusAuthorized:
+                response = @"authorized";
+                break;
+            case CMAuthorizationStatusRestricted:
+                response = @"restricted";
+                break;
+            case CMAuthorizationStatusNotDetermined:
+                response = @"not_determined";
+                break;
+            default:
+                break;
+        }
+#pragma clang diagnostic pop
+#endif
+    callback(@[[NSNull null], response]);
+}
+
 #pragma mark - Private
 
 - (instancetype)init

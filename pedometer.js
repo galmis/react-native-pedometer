@@ -45,6 +45,10 @@ function startPedometerUpdatesFromDate(date, handler) {
   );
 }
 
+function authorizationStatus(callback) {
+  RNPedometer.authorizationStatus(callback);
+}
+
 export default {
   isStepCountingAvailable,
   isDistanceAvailable,
@@ -53,5 +57,6 @@ export default {
   isPedometerEventTrackingAvailable,
   queryPedometerDataBetweenDates,
   stopPedometerUpdates,
-  startPedometerUpdatesFromDate
+  startPedometerUpdatesFromDate,
+  authorizationStatus
 }
