@@ -40,6 +40,14 @@ RCT_EXPORT_METHOD(isDistanceAvailable:(RCTResponseSenderBlock) callback) {
     callback(@[[NSNull null], @([CMPedometer isDistanceAvailable])]);
 }
 
+RCT_EXPORT_METHOD(isPedometerEventTrackingAvailable:(RCTResponseSenderBlock) callback) {
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 100000
+        callback(@[[NSNull null], @([CMPedometer isPedometerEventTrackingAvailable])]);
+#else
+        callback(@[@"not available", @(NO)]);
+#endif
+}
+
 RCT_EXPORT_METHOD(queryPedometerDataBetweenDates:(NSDate *)startDate endDate:(NSDate *)endDate handler:(RCTResponseSenderBlock)handler) {
     [self.pedometer queryPedometerDataFromDate:startDate
                                         toDate:endDate
