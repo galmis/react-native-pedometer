@@ -22,6 +22,10 @@ function isCadenceAvailable(callback) {
   RNPedometer.isCadenceAvailable(callback);
 }
 
+function isPedometerEventTrackingAvailable(callback) {
+  RNPedometer.isPedometerEventTrackingAvailable(callback);
+}
+
 function queryPedometerDataBetweenDates(startDate, endDate, handler) {
   RNPedometer.queryPedometerDataBetweenDates(startDate, endDate, handler);
 }
@@ -41,12 +45,18 @@ function startPedometerUpdatesFromDate(date, handler) {
   );
 }
 
+function authorizationStatus(callback) {
+  RNPedometer.authorizationStatus(callback);
+}
+
 export default {
   isStepCountingAvailable,
   isDistanceAvailable,
   isPaceAvailable,
   isCadenceAvailable,
+  isPedometerEventTrackingAvailable,
   queryPedometerDataBetweenDates,
   stopPedometerUpdates,
-  startPedometerUpdatesFromDate
+  startPedometerUpdatesFromDate,
+  authorizationStatus
 }
